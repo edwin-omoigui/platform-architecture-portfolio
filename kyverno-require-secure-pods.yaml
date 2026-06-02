@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: platform-trust-bundle
+  namespace: platform-demo
+  labels:
+    platform.example.com/contract: trust
+data:
+  README: |
+    Placeholder trust bundle contract.
+    In production, use cert-manager, trust-manager, or approved enterprise CA distribution.
+  ca.crt: |
+    -----BEGIN CERTIFICATE-----
+    placeholder
+    -----END CERTIFICATE-----

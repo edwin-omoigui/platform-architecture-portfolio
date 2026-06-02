@@ -1,0 +1,23 @@
+from pydantic_settings import BaseSettings
+
+
+class Settings(BaseSettings):
+    service_name: str = "platform-demo-app"
+    tenant_name: str = "demo-tenant"
+    environment: str = "local"
+    region: str = "local"
+    platform_owner: str = "platform-engineering"
+
+    postgres_host: str = "not-configured"
+    s3_endpoint: str = "not-configured"
+    oidc_issuer_url: str = "not-configured"
+    otel_exporter_otlp_endpoint: str = "not-configured"
+
+    log_level: str = "INFO"
+
+    class Config:
+        env_file = ".env"
+        case_sensitive = False
+
+
+settings = Settings()

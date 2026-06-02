@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - tenant-info.yaml
+  - postgres-connection.yaml
+  - s3-config.yaml
+  - s3-credentials.yaml
+  - oidc-config.yaml
+  - trust-bundle.yaml
+  - observability-config.yaml

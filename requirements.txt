@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Platform Architecture Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; max-width: 1000px; color: #1f2937; }
+    h1, h2 { color: #111827; }
+    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 18px; margin: 16px 0; }
+    code { background: #f3f4f6; padding: 2px 5px; border-radius: 4px; }
+    a { color: #2563eb; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <h1>Platform Architecture Portfolio</h1>
+  <p><strong>Architecture-first portfolio with a deployable cloud-native demo layer.</strong></p>
+
+  <div class="card">
+    <h2>Reference Architecture</h2>
+    <p>Layered platform architecture covering GitOps, Kubernetes runtime, platform contracts, secure workloads, observability, governance, and AI readiness.</p>
+    <p><a href="docs/architecture/01-reference-architecture.md">View architecture document</a></p>
+  </div>
+
+  <div class="card">
+    <h2>Production Readiness</h2>
+    <p>Secure-by-default workload design with probes, HPA, PDB, network policy, resource controls, and observability endpoints.</p>
+    <p><a href="docs/architecture/03-production-readiness.md">View readiness checklist</a></p>
+  </div>
+
+  <div class="card">
+    <h2>Demo Layer</h2>
+    <p>FastAPI app packaged with Helm and Kustomize to demonstrate deployable platform patterns.</p>
+    <p><code>helm upgrade --install platform-demo-app ./charts/platform-demo-app -n platform-demo --create-namespace</code></p>
+  </div>
+</body>
+</html>

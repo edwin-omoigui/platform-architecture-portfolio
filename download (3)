@@ -1,0 +1,148 @@
+# Platform Architecture Portfolio
+
+**Enterprise Platform Architecture | Kubernetes | GitOps | DevSecOps | Observability | AI Infrastructure Readiness**
+
+This repository is an architecture-first portfolio with a small production-style demo layer.
+
+It shows how an enterprise platform can be structured around:
+
+- Internal Developer Platforms
+- Kubernetes platform engineering
+- GitOps operating models
+- Secure-by-default workload delivery
+- Observability and reliability
+- Platform service contracts
+- Compliance-aware governance patterns
+- AI infrastructure readiness
+
+The deployable demo is intentionally small, but the surrounding architecture, repo structure, contracts, controls, and deployment patterns reflect how real platform teams package reusable capabilities.
+
+> This repository is fully generalized. It does not include confidential company names, customer data, internal network information, production IPs, or proprietary implementation details.
+
+---
+
+## What This Portfolio Demonstrates
+
+| Area | Demonstrated Capability |
+|---|---|
+| Platform Architecture | Layered architecture, platform contracts, reusable services |
+| Internal Developer Platform | Golden-path deployment model and self-service concepts |
+| Kubernetes Engineering | Helm chart, Kustomize overlays, secure workload defaults |
+| GitOps Readiness | Environment overlays and declarative deployment structure |
+| Security | Non-root runtime, read-only filesystem, network policy, service account isolation |
+| Reliability | Health checks, readiness checks, HPA, PDB, resource controls |
+| Observability | Prometheus metrics endpoint, standard scrape annotations, ServiceMonitor support |
+| Governance | Namespace standards, quotas, limits, policy examples, architecture decision records |
+| AI Readiness | AI platform extension point and architecture documentation |
+
+---
+
+## Repository Structure
+
+```text
+.
+├── app/                               # Small demo API service
+├── charts/platform-demo-app/           # Production-style Helm chart
+├── environments/
+│   ├── local/                          # Local platform contract overlay
+│   └── prod-like/                      # Production-style Helm values
+├── platform/
+│   ├── contracts/                      # Platform service contracts
+│   ├── controls/                       # Policy examples
+│   └── namespaces/                     # Namespace, quota, defaults
+├── docs/
+│   ├── architecture/                   # Architecture portfolio documents
+│   ├── adr/                            # Architecture decision records
+│   └── operations/                     # Runbooks and deployment guidance
+├── diagrams/                           # Mermaid and canvas diagrams
+├── scripts/                            # Build, deploy, validate helpers
+└── .github/workflows/                  # CI validation
+```
+
+---
+
+## Architecture View
+
+```text
+Developer Experience
+        ↓
+GitOps / CI/CD
+        ↓
+Kubernetes Platform
+        ↓
+Platform Service Contracts
+        ↓
+Secure Demo Workload
+        ↓
+Observability / Reliability / Governance
+        ↓
+Business Value
+```
+
+---
+
+## Quick Start
+
+### 1. Run the demo app locally
+
+```bash
+cd app
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn platform_demo.main:app --host 0.0.0.0 --port 8080
+```
+
+Open:
+
+```text
+http://localhost:8080
+http://localhost:8080/health
+http://localhost:8080/ready
+http://localhost:8080/platform-contract
+http://localhost:8080/metrics
+```
+
+### 2. Build the container
+
+```bash
+./scripts/build-image.sh
+```
+
+### 3. Deploy platform contracts
+
+```bash
+kubectl apply -k environments/local
+```
+
+### 4. Deploy the app with Helm
+
+```bash
+helm upgrade --install platform-demo-app ./charts/platform-demo-app \
+  --namespace platform-demo \
+  --create-namespace \
+  -f environments/prod-like/values.yaml
+```
+
+### 5. Validate
+
+```bash
+./scripts/validate-deployment.sh platform-demo
+kubectl -n platform-demo port-forward svc/platform-demo-app 8080:80
+```
+
+---
+
+## Portfolio Story
+
+This repo is meant to show architecture capability, not just coding ability.
+
+It demonstrates how a Platform Architect thinks about:
+
+- What the platform provides
+- What application teams consume
+- What should be standardized
+- What should be automated
+- What controls should exist by default
+- How platform services become reusable capabilities
+- How infrastructure supports future AI workloads
