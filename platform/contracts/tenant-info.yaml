@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tenant-info
+  namespace: platform-demo
+  labels:
+    platform.example.com/contract: tenant-info
+data:
+  TENANT_NAME: demo-tenant
+  ENVIRONMENT: local
+  REGION: local
+  PLATFORM_OWNER: platform-engineering

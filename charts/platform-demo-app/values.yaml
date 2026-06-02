@@ -1,0 +1,48 @@
+replicaCount: 2
+
+image:
+  repository: platform-demo-app
+  tag: local
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+app:
+  tenantName: demo-tenant
+  environment: local
+  region: local
+  platformOwner: platform-engineering
+
+platformContracts:
+  postgresHost: postgres.platform-data.svc.cluster.local
+  s3Endpoint: http://minio.platform-data.svc.cluster.local:9000
+  oidcIssuerUrl: https://identity.example.com/realms/demo
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+podSecurityContext:
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL
+
+serviceMonitor:
+  enabled: false
+
+networkPolicy:
+  enabled: true

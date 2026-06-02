@@ -1,0 +1,6 @@
+apiVersion: v2
+name: platform-demo-app
+description: A deployable platform demo app for cloud-native architecture portfolio.
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

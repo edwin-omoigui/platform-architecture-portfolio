@@ -1,71 +1,114 @@
-# Platform Architecture Portfolio
+# Platform Architecture Portfolio - Working Code
 
-**Edwin Omoigui**  
-Platform Architect | Cloud Native Platforms | Kubernetes | Internal Developer Platforms | DevSecOps | Observability | AI Infrastructure
+This repository demonstrates a small but deployable cloud-native platform reference pattern.
 
-This repository contains reference architecture artifacts focused on modern enterprise platform engineering, cloud-native infrastructure, internal developer platforms, observability, security, compliance, and AI infrastructure.
+It is intentionally generic and does not include confidential company, customer, network, or production environment details.
 
-The goal of this portfolio is to demonstrate architecture thinking for next-generation enterprise platforms that support traditional workloads, cloud-native applications, and emerging AI workloads.
+## What This Demonstrates
 
-> All content is generalized and does not include confidential company, customer, network, or production environment information.
+- Kubernetes platform engineering
+- GitOps-friendly repository layout
+- Helm-based application packaging
+- Kustomize environment overlays
+- Platform service contracts
+- Observability-ready application design
+- Secure-by-default Kubernetes manifests
+- Internal Developer Platform concepts
+- Architecture portfolio artifacts
 
----
-
-## Portfolio Focus Areas
-
-- Kubernetes Platform Architecture
-- Internal Developer Platforms (IDP)
-- GitOps and Platform Automation
-- Cloud Native Security
-- Observability Engineering
-- AI Infrastructure and MLOps Platforms
-- Enterprise Cloud Architecture
-- Platform Reliability Engineering
-- NIST / FISMA-aligned platform governance concepts
-
----
-
-## Architecture Artifacts
-
-| Area | Description |
-|---|---|
-| [Cloud Native Platform](docs/cloud-native-platform.md) | Kubernetes, GitOps, ingress, identity, observability, storage, and security |
-| [Internal Developer Platform](docs/internal-developer-platform.md) | Developer self-service, golden paths, tenant onboarding, and reusable platform services |
-| [Enterprise AI Infrastructure](docs/ai-infrastructure-platform.md) | GPU infrastructure, model serving, vector databases, observability, and governance |
-| [Observability & Security Platform](docs/observability-security-platform.md) | OpenTelemetry, Prometheus, Grafana, Loki, Tempo, OIDC, PKI, and policy controls |
-| [NIST-Aligned Platform Governance](docs/nist-platform-governance.md) | Security controls, risk management, audit readiness, and compliance-oriented platform design |
-
----
-
-## Reference Diagrams
-
-- [Cloud Native Platform Diagram](diagrams/cloud-native-platform.mmd)
-- [Internal Developer Platform Diagram](diagrams/idp-architecture.mmd)
-- [AI Infrastructure Platform Diagram](diagrams/ai-infrastructure.mmd)
-- [Observability & Security Diagram](diagrams/observability-security.mmd)
-
----
-
-## Target Architecture Themes
+## Repository Structure
 
 ```text
-Developer Experience
-        ↓
-Internal Developer Platform
-        ↓
-GitOps / Automation
-        ↓
-Kubernetes Platform
-        ↓
-Identity / Security / Compliance
-        ↓
-Observability / Reliability
-        ↓
-Application and AI Workloads
+.
+├── app/                         # Demo API service
+├── charts/platform-demo-app/     # Helm chart
+├── platform/
+│   ├── contracts/                # Platform contracts: tenant, DB, S3, trust, observability
+│   └── base/                     # Shared Kubernetes platform resources
+├── environments/
+│   └── local/                    # Kustomize local deployment
+├── docs/                         # Architecture documentation
+├── diagrams/                     # Mermaid diagrams
+├── scripts/                      # Deployment helpers
+└── .github/workflows/            # CI workflow
 ```
 
----
+## Quick Start
 
-## Suggested LinkedIn Featured Description
+### Option 1: Run locally with Python
 
-A reference architecture portfolio showing how modern enterprise platforms combine Kubernetes, GitOps, identity, observability, platform security, compliance, and AI infrastructure to support scalable application delivery.
+```bash
+cd app
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn main:app --host 0.0.0.0 --port 8080
+```
+
+Open:
+
+```text
+http://localhost:8080
+http://localhost:8080/health
+http://localhost:8080/metrics
+```
+
+### Option 2: Run with Docker
+
+```bash
+docker build -t platform-demo-app:local ./app
+docker run -p 8080:8080 platform-demo-app:local
+```
+
+### Option 3: Deploy to Kubernetes with Helm
+
+```bash
+helm upgrade --install platform-demo-app ./charts/platform-demo-app \
+  --namespace platform-demo \
+  --create-namespace
+```
+
+Validate:
+
+```bash
+kubectl -n platform-demo get pods,svc
+kubectl -n platform-demo port-forward svc/platform-demo-app 8080:80
+```
+
+### Option 4: Deploy Local Platform Contracts with Kustomize
+
+```bash
+kubectl apply -k environments/local
+```
+
+## Portfolio Narrative
+
+This working example represents a simplified Internal Developer Platform pattern:
+
+```text
+Developer
+  ↓
+Git Repository
+  ↓
+Helm / Kustomize / GitOps
+  ↓
+Kubernetes Platform
+  ↓
+Platform Services
+  ↓
+Application Workloads
+  ↓
+Observability / Security / Governance
+```
+
+## Platform Architect Value
+
+This repo shows the ability to design and package a reusable platform pattern that combines:
+
+- Application runtime
+- Kubernetes deployment
+- Platform service dependencies
+- Environment configuration
+- Security posture
+- Observability readiness
+- GitOps compatibility
