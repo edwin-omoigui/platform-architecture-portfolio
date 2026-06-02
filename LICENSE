@@ -1,5 +1,9 @@
-#!/usr/bin/env bash
-set -euo pipefail
+MIT License
 
-kubectl apply -k environments/local
-kubectl -n platform-demo get resourcequota,limitrange,configmap,secret
+Copyright (c) 2026 Edwin Omoigui
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files to deal in the software
+without restriction.
+
+The software is provided "as is", without warranty of any kind.

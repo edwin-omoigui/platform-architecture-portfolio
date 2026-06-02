@@ -3,10 +3,8 @@ kind: ConfigMap
 metadata:
   name: tenant-info
   namespace: platform-demo
-  labels:
-    platform.example.com/contract: tenant-info
 data:
-  TENANT_NAME: demo-tenant
-  ENVIRONMENT: local
-  REGION: local
+  TENANT_NAME: enterprise-demo
+  ENVIRONMENT: prod-like
+  REGION: primary
   PLATFORM_OWNER: platform-engineering

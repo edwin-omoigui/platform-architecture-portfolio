@@ -3,12 +3,10 @@ kind: Secret
 metadata:
   name: postgres-connection
   namespace: platform-demo
-  labels:
-    platform.example.com/contract: postgres
 type: Opaque
 stringData:
   PGHOST: postgres.platform-data.svc.cluster.local
   PGPORT: "5432"
   PGDATABASE: appdb
   PGUSER: appuser
-  PGPASSWORD: change-me
+  PGPASSWORD: replace-with-external-secret

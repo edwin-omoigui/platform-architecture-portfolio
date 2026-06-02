@@ -3,9 +3,7 @@ kind: ConfigMap
 metadata:
   name: s3-config
   namespace: platform-demo
-  labels:
-    platform.example.com/contract: object-storage
 data:
-  S3_ENDPOINT: http://minio.platform-data.svc.cluster.local:9000
-  S3_BUCKET: demo-tenant
-  S3_REGION: local
+  S3_ENDPOINT: http://object-storage.platform-data.svc.cluster.local:9000
+  S3_BUCKET: enterprise-demo
+  S3_REGION: primary

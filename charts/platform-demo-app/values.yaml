@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: platform-demo-app
-  tag: local
+  tag: "1.0.0"
   pullPolicy: IfNotPresent
 
 service:
@@ -11,6 +11,7 @@ service:
   targetPort: 8080
 
 app:
+  serviceName: platform-demo-app
   tenantName: demo-tenant
   environment: local
   region: local
@@ -18,8 +19,9 @@ app:
 
 platformContracts:
   postgresHost: postgres.platform-data.svc.cluster.local
-  s3Endpoint: http://minio.platform-data.svc.cluster.local:9000
+  s3Endpoint: http://object-storage.platform-data.svc.cluster.local:9000
   oidcIssuerUrl: https://identity.example.com/realms/demo
+  otelExporterOtlpEndpoint: http://otel-collector.observability.svc.cluster.local:4317
 
 resources:
   requests:
@@ -29,20 +31,42 @@ resources:
     cpu: 500m
     memory: 512Mi
 
+serviceAccount:
+  create: true
+  automountServiceAccountToken: false
+
 podSecurityContext:
   runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
   seccompProfile:
     type: RuntimeDefault
 
 securityContext:
   allowPrivilegeEscalation: false
   readOnlyRootFilesystem: true
+  runAsNonRoot: true
   capabilities:
     drop:
       - ALL
 
-serviceMonitor:
-  enabled: false
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
 
 networkPolicy:
   enabled: true
+
+serviceMonitor:
+  enabled: false
+
+gateway:
+  enabled: false
+  hostname: platform-demo.example.com

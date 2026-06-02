@@ -3,13 +3,6 @@ kind: ConfigMap
 metadata:
   name: platform-trust-bundle
   namespace: platform-demo
-  labels:
-    platform.example.com/contract: trust
 data:
   README: |
-    This is a placeholder trust bundle contract.
-    In production this would contain CA certificates or be synced by a trust management solution.
-  ca.crt: |
-    -----BEGIN CERTIFICATE-----
-    placeholder
-    -----END CERTIFICATE-----
+    Placeholder trust contract. Use enterprise CA distribution in production.

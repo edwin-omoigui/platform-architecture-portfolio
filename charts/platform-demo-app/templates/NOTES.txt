@@ -2,12 +2,8 @@ Platform demo app deployed.
 
 Validate:
 
-  kubectl -n {{ .Release.Namespace }} get pods,svc
+  kubectl -n {{ .Release.Namespace }} get deploy,pod,svc,hpa,pdb,networkpolicy
+
+Port-forward:
+
   kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "platform-demo-app.fullname" . }} 8080:80
-
-Open:
-
-  http://localhost:8080
-  http://localhost:8080/health
-  http://localhost:8080/platform-contract
-  http://localhost:8080/metrics

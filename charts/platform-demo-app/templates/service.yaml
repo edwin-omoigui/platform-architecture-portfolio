@@ -3,13 +3,12 @@ kind: Service
 metadata:
   name: {{ include "platform-demo-app.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ include "platform-demo-app.name" . }}
-    app.kubernetes.io/component: api
+    {{- include "platform-demo-app.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   selector:
-    app.kubernetes.io/name: {{ include "platform-demo-app.name" . }}
+    {{- include "platform-demo-app.selectorLabels" . | nindent 4 }}
   ports:
     - name: http
       port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+      targetPort: http
