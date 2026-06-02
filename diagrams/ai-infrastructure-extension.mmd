@@ -1,0 +1,10 @@
+flowchart LR
+    Platform[Kubernetes Platform] --> GPU[GPU Infrastructure]
+    Platform --> Data[Enterprise Data Services]
+    Platform --> Security[Security & Governance]
+    Platform --> Obs[AI Observability]
+    GPU --> Serving[Model Serving]
+    Data --> Serving
+    Security --> Serving
+    Obs --> Serving
+    Serving --> AIApps[AI-enabled Applications]

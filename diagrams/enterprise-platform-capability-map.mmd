@@ -1,0 +1,12 @@
+flowchart TD
+    P[Enterprise Platform Architecture]
+    P --> PE[Platform Engineering]
+    P --> SI[Security & Identity]
+    P --> OR[Observability & Reliability]
+    P --> DS[Data & Platform Services]
+    P --> AI[AI Infrastructure Readiness]
+    PE --> PE1[IDP / GitOps / Kubernetes]
+    SI --> SI1[OIDC / PKI / Policy]
+    OR --> OR1[OpenTelemetry / Grafana]
+    DS --> DS1[PostgreSQL / Object Storage]
+    AI --> AI1[GPU / Model Serving]

@@ -1,0 +1,115 @@
+{
+  "nodes": [
+    {
+      "id": "p",
+      "type": "text",
+      "text": "Enterprise Platform Architecture",
+      "x": 450,
+      "y": 0,
+      "width": 320,
+      "height": 70,
+      "color": "6"
+    },
+    {
+      "id": "pe",
+      "type": "text",
+      "text": "Platform Engineering\nIDP \u2022 GitOps \u2022 Kubernetes",
+      "x": 20,
+      "y": 180,
+      "width": 260,
+      "height": 110,
+      "color": "1"
+    },
+    {
+      "id": "si",
+      "type": "text",
+      "text": "Security & Identity\nOIDC \u2022 PKI \u2022 Policy",
+      "x": 320,
+      "y": 180,
+      "width": 260,
+      "height": 110,
+      "color": "3"
+    },
+    {
+      "id": "or",
+      "type": "text",
+      "text": "Observability\nOpenTelemetry \u2022 Grafana",
+      "x": 620,
+      "y": 180,
+      "width": 260,
+      "height": 110,
+      "color": "5"
+    },
+    {
+      "id": "ds",
+      "type": "text",
+      "text": "Data Services\nPostgreSQL \u2022 Object Storage",
+      "x": 920,
+      "y": 180,
+      "width": 260,
+      "height": 110,
+      "color": "4"
+    },
+    {
+      "id": "ai",
+      "type": "text",
+      "text": "AI Infrastructure\nGPU \u2022 Model Serving \u2022 Governance",
+      "x": 450,
+      "y": 380,
+      "width": 340,
+      "height": 110,
+      "color": "6"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "p",
+      "fromSide": "bottom",
+      "toNode": "pe",
+      "toSide": "top"
+    },
+    {
+      "id": "e2",
+      "fromNode": "p",
+      "fromSide": "bottom",
+      "toNode": "si",
+      "toSide": "top"
+    },
+    {
+      "id": "e3",
+      "fromNode": "p",
+      "fromSide": "bottom",
+      "toNode": "or",
+      "toSide": "top"
+    },
+    {
+      "id": "e4",
+      "fromNode": "p",
+      "fromSide": "bottom",
+      "toNode": "ds",
+      "toSide": "top"
+    },
+    {
+      "id": "e5",
+      "fromNode": "si",
+      "fromSide": "bottom",
+      "toNode": "ai",
+      "toSide": "top"
+    },
+    {
+      "id": "e6",
+      "fromNode": "or",
+      "fromSide": "bottom",
+      "toNode": "ai",
+      "toSide": "top"
+    },
+    {
+      "id": "e7",
+      "fromNode": "ds",
+      "fromSide": "bottom",
+      "toNode": "ai",
+      "toSide": "top"
+    }
+  ]
+}

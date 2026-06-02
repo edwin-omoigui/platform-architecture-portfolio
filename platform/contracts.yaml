@@ -7,3 +7,4 @@ data:
   observability: opentelemetry
   database: postgresql
   storage: object-storage
+  trust: platform-managed-ca

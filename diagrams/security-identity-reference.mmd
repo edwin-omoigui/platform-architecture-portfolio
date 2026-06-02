@@ -1,0 +1,8 @@
+flowchart TD
+    User[Users / Developers] --> IdP[Identity Provider]
+    IdP --> OIDC[OIDC / OAuth2]
+    OIDC --> Gateway[Gateway / Ingress]
+    Gateway --> Workloads[Application Workloads]
+    PKI[PKI / Certificate Lifecycle] --> Workloads
+    Policy[Policy-as-Code] --> Workloads
+    Workloads --> Audit[Audit & Compliance Evidence]
