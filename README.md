@@ -1,11 +1,10 @@
 # Enterprise Platform Architecture Portfolio
 
-**Platform Architect | Cloud Native Platforms | Kubernetes | Security & Identity | Observability | AI Infrastructure**
+**Architecture | Kubernetes | Security & Identity | Observability | AI Infrastructure**
 
 This repository presents a professional architecture portfolio for modern enterprise platforms.  
 It combines architecture concepts, domain diagrams, and a lightweight demo layer to show how platform capabilities can be designed, packaged, secured, observed, and extended toward AI infrastructure.
 
-> All content is generalized and does not include confidential company, customer, network, IP, or production environment details.
 
 ---
 
