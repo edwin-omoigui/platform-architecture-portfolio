@@ -1,0 +1,101 @@
+{
+  "nodes": [
+    {
+      "id": "title",
+      "type": "text",
+      "text": "ENTERPRISE PLATFORM ARCHITECTURE\nArchitecture-driven portfolio with lightweight deployable demo",
+      "x": 250,
+      "y": -160,
+      "width": 520,
+      "height": 90,
+      "color": "6"
+    },
+    {
+      "id": "a",
+      "type": "text",
+      "text": "Developer Experience\nSelf-Service\nGolden Paths",
+      "x": 0,
+      "y": 40,
+      "width": 220,
+      "height": 120,
+      "color": "2"
+    },
+    {
+      "id": "b",
+      "type": "text",
+      "text": "GitOps Delivery\nHelm\nDeclarative Config",
+      "x": 300,
+      "y": 40,
+      "width": 220,
+      "height": 120,
+      "color": "1"
+    },
+    {
+      "id": "c",
+      "type": "text",
+      "text": "Kubernetes Platform\nSecure Runtime\nNetwork Policy",
+      "x": 600,
+      "y": 40,
+      "width": 220,
+      "height": 120,
+      "color": "4"
+    },
+    {
+      "id": "d",
+      "type": "text",
+      "text": "Platform Services\nIdentity\nData\nObservability\nTrust",
+      "x": 900,
+      "y": 40,
+      "width": 240,
+      "height": 150,
+      "color": "3"
+    },
+    {
+      "id": "e",
+      "type": "text",
+      "text": "Business Value\nFaster Delivery\nStandardization\nSecure Defaults\nAI-Ready Foundation",
+      "x": 440,
+      "y": 310,
+      "width": 320,
+      "height": 170,
+      "color": "6"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "a",
+      "fromSide": "right",
+      "toNode": "b",
+      "toSide": "left"
+    },
+    {
+      "id": "e2",
+      "fromNode": "b",
+      "fromSide": "right",
+      "toNode": "c",
+      "toSide": "left"
+    },
+    {
+      "id": "e3",
+      "fromNode": "c",
+      "fromSide": "right",
+      "toNode": "d",
+      "toSide": "left"
+    },
+    {
+      "id": "e4",
+      "fromNode": "c",
+      "fromSide": "bottom",
+      "toNode": "e",
+      "toSide": "top"
+    },
+    {
+      "id": "e5",
+      "fromNode": "d",
+      "fromSide": "bottom",
+      "toNode": "e",
+      "toSide": "top"
+    }
+  ]
+}
