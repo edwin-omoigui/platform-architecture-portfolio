@@ -2,24 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: platform-contracts
-  namespace: platform-demo
 data:
-  tenant-info: |
-    tenant: demo-tenant
-    environment: portfolio
-    owner: platform-engineering
-
-  identity: |
-    provider: oidc
-    issuer: https://identity.example.com/realms/demo
-
-  data-services: |
-    postgres: postgres.platform-services.svc.cluster.local
-    objectStorage: https://object-storage.example.com
-
-  observability: |
-    metrics: /metrics
-    traces: otel-collector.observability.svc.cluster.local:4317
-
-  trust: |
-    caBundle: managed-by-platform
+  identity: oidc
+  observability: opentelemetry
+  database: postgresql
+  storage: object-storage

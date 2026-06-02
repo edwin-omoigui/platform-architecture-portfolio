@@ -1,0 +1,90 @@
+{
+  "nodes": [
+    {
+      "id": "p",
+      "type": "text",
+      "text": "Enterprise Platform Architecture",
+      "x": 400,
+      "y": 0,
+      "width": 300,
+      "height": 60
+    },
+    {
+      "id": "pe",
+      "type": "text",
+      "text": "Platform Engineering",
+      "x": 50,
+      "y": 180,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "id",
+      "type": "text",
+      "text": "Identity & Access",
+      "x": 280,
+      "y": 180,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "sc",
+      "type": "text",
+      "text": "Security & Compliance",
+      "x": 510,
+      "y": 180,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "ob",
+      "type": "text",
+      "text": "Observability",
+      "x": 740,
+      "y": 180,
+      "width": 180,
+      "height": 60
+    },
+    {
+      "id": "ai",
+      "type": "text",
+      "text": "AI Infrastructure",
+      "x": 395,
+      "y": 340,
+      "width": 220,
+      "height": 60
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "fromNode": "p",
+      "toNode": "pe"
+    },
+    {
+      "id": "e2",
+      "fromNode": "p",
+      "toNode": "id"
+    },
+    {
+      "id": "e3",
+      "fromNode": "p",
+      "toNode": "sc"
+    },
+    {
+      "id": "e4",
+      "fromNode": "p",
+      "toNode": "ob"
+    },
+    {
+      "id": "e5",
+      "fromNode": "sc",
+      "toNode": "ai"
+    },
+    {
+      "id": "e6",
+      "fromNode": "ob",
+      "toNode": "ai"
+    }
+  ]
+}
