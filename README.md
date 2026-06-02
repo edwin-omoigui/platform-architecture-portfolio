@@ -1,32 +1,32 @@
 # Enterprise Platform Architecture Portfolio
 
-A focused, architecture-driven portfolio showing how modern platform teams design reusable cloud-native capabilities for application delivery.
+A compact architecture-driven portfolio showing how reusable cloud-native platform capabilities can support application delivery, governance, observability, and future AI workloads.
 
-This repo keeps the implementation intentionally small. The goal is to show **platform architecture thinking** supported by a lightweight deployable demo layer.
-
----
-
-## Architecture Focus
-
-This portfolio demonstrates:
-
-- Internal Developer Platform patterns
-- Kubernetes platform engineering
-- GitOps-ready delivery structure
-- Platform service contracts
-- Secure workload defaults
-- Observability-ready application design
-- AI infrastructure readiness
+The repo is intentionally small, but it still demonstrates the key platform architecture concepts expected from a **Platform Architect / Principal Platform Engineer** profile.
 
 ---
 
-## Platform Flow
+## What This Portfolio Shows
+
+| Domain | Architecture Concept | Example in Repo |
+|---|---|---|
+| Developer Experience | Self-service, golden paths, lower cognitive load | Platform flow and demo app contract |
+| GitOps Delivery | Declarative deployment and reusable packaging | Helm chart |
+| Kubernetes Platform | Secure workload runtime and service networking | Deployment, Service, NetworkPolicy |
+| Platform Services | Identity, data, trust, observability contracts | `platform/contracts.yaml` |
+| Security & Governance | Secure defaults, ownership, audit-friendly design | Architecture docs and workload settings |
+| Observability | Metrics, readiness, operational visibility | `/metrics`, `/health`, `/ready` |
+| AI Readiness | Platform foundation for AI workloads | AI-readiness notes in architecture |
+
+---
+
+## Architecture Flow
 
 ```mermaid
 flowchart LR
     A[Developer Experience] --> B[GitOps Delivery]
     B --> C[Kubernetes Platform]
-    C --> D[Platform Services]
+    C --> D[Platform Service Contracts]
     D --> E[Application Workloads]
     E --> F[Observability & Governance]
     F --> G[Business Value]
@@ -34,13 +34,15 @@ flowchart LR
 
 ---
 
-## Repository Structure
+## Repo Structure
 
 ```text
 .
 ├── README.md
 ├── docs/
-│   └── architecture.md
+│   ├── architecture.md
+│   ├── platform-contracts.md
+│   └── security-governance-ai.md
 ├── app/
 │   ├── main.py
 │   ├── requirements.txt
@@ -58,35 +60,29 @@ flowchart LR
 
 ---
 
-## What The Demo Layer Shows
+## Why This Is Architect-Level
 
-| Component | Purpose |
-|---|---|
-| Demo API | Shows a simple workload consuming platform context |
-| Helm Chart | Shows deployable Kubernetes packaging |
-| Platform Contracts | Shows identity, data, trust, and observability contracts |
-| Metrics Endpoint | Shows observability readiness |
-| Security Defaults | Shows non-root, least-privilege workload posture |
+This is not just a demo app. It shows how platform teams think in reusable layers:
 
----
-
-## Business Value
-
-This architecture supports:
-
-- Faster application onboarding
-- Reduced developer cognitive load
-- Standardized platform services
-- Secure-by-default delivery
-- Better operational visibility
-- Easier governance and audit readiness
-- A foundation for future AI workloads
+```text
+Developer need
+   ↓
+Platform pattern
+   ↓
+Reusable contract
+   ↓
+Secure runtime
+   ↓
+Observable workload
+   ↓
+Business outcome
+```
 
 ---
 
-## Deploy Demo
+## Deployable Demo Layer
 
-Build the image and install the Helm chart into a Kubernetes environment of your choice.
+The demo app is intentionally lightweight. It exists to prove that the architecture can be packaged and deployed.
 
 ```bash
 docker build -t platform-demo-app:1.0.0 ./app
@@ -96,7 +92,7 @@ helm upgrade --install platform-demo-app ./chart \
   --create-namespace
 ```
 
-Validate the deployment:
+Validate:
 
 ```bash
 kubectl -n platform-demo get deploy,svc,pod
@@ -104,6 +100,12 @@ kubectl -n platform-demo get deploy,svc,pod
 
 ---
 
-## Portfolio Positioning
+## Business Value Delivered
 
-This repo is designed to support Platform Architect, Principal Platform Engineer, Cloud Native Architect, and AI Infrastructure Architect positioning.
+- Faster application onboarding
+- Reduced developer cognitive load
+- Standardized identity, data, trust, and observability contracts
+- Secure-by-default workload patterns
+- Better operational readiness
+- Governance-ready platform structure
+- Foundation for AI infrastructure and model-serving workloads

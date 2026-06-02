@@ -3,7 +3,7 @@
     {
       "id": "title",
       "type": "text",
-      "text": "ENTERPRISE PLATFORM ARCHITECTURE\nArchitecture-driven portfolio with lightweight deployable demo",
+      "text": "ENTERPRISE PLATFORM ARCHITECTURE\nCompact portfolio with deployable demo layer",
       "x": 250,
       "y": -160,
       "width": 520,
@@ -43,7 +43,7 @@
     {
       "id": "d",
       "type": "text",
-      "text": "Platform Services\nIdentity\nData\nObservability\nTrust",
+      "text": "Platform Contracts\nIdentity\nData\nTrust\nObservability",
       "x": 900,
       "y": 40,
       "width": 240,
@@ -53,11 +53,11 @@
     {
       "id": "e",
       "type": "text",
-      "text": "Business Value\nFaster Delivery\nStandardization\nSecure Defaults\nAI-Ready Foundation",
+      "text": "Business Value\nFaster Delivery\nStandardization\nSecure Defaults\nGovernance\nAI-Ready Foundation",
       "x": 440,
       "y": 310,
-      "width": 320,
-      "height": 170,
+      "width": 330,
+      "height": 190,
       "color": "6"
     }
   ],

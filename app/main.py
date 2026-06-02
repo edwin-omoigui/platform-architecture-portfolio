@@ -15,7 +15,7 @@ REQUESTS = Counter(
 def platform_context():
     return {
         "tenant": os.getenv("TENANT_NAME", "demo"),
-        "environment": os.getenv("ENVIRONMENT", "demo"),
+        "environment": os.getenv("ENVIRONMENT", "portfolio"),
         "identity_provider": os.getenv("OIDC_ISSUER_URL", "not-configured"),
         "database": os.getenv("POSTGRES_HOST", "not-configured"),
         "object_storage": os.getenv("S3_ENDPOINT", "not-configured"),
@@ -28,7 +28,7 @@ def root():
     REQUESTS.labels(endpoint="/").inc()
     return {
         "service": "platform-demo-app",
-        "purpose": "Lightweight demo workload for platform architecture portfolio",
+        "purpose": "Lightweight workload for platform architecture portfolio",
         "platform_context": platform_context(),
     }
 
