@@ -1,0 +1,21 @@
+flowchart TD
+    Dev[Developer] --> Portal[Developer Portal / Service Catalog]
+    Portal --> Templates[Golden Path Templates]
+    Templates --> Git[GitOps Repository]
+    Git --> Flux[FluxCD]
+    Flux --> Platform[Kubernetes Platform]
+
+    Platform --> Ingress[Ingress / Gateway]
+    Platform --> Identity[OIDC / Keycloak]
+    Platform --> DB[PostgreSQL]
+    Platform --> S3[Object Storage]
+    Platform --> Obs[Observability Stack]
+    Platform --> Policy[Policy & Compliance Controls]
+    Platform --> Secrets[Secrets / Certificates]
+
+    Ingress --> App[Application Workload]
+    Identity --> App
+    DB --> App
+    S3 --> App
+    Obs --> Team[Dev & Platform Teams]
+    Policy --> Governance[Governance]

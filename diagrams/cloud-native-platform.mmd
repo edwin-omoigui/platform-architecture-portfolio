@@ -1,0 +1,17 @@
+flowchart TD
+    Dev[Developers] --> Git[Git Repository]
+    Git --> Flux[FluxCD / GitOps]
+    Flux --> K8s[Kubernetes Platform]
+
+    K8s --> Gateway[Envoy Gateway / Ingress]
+    K8s --> Identity[Keycloak / OIDC]
+    K8s --> Observability[OpenTelemetry / Prometheus / Grafana]
+    K8s --> Data[PostgreSQL / Object Storage]
+    K8s --> Security[Cert-Manager / Policy-as-Code]
+    K8s --> Backup[Velero / Backup Platform]
+
+    Gateway --> Apps[Enterprise Applications]
+    Identity --> Apps
+    Data --> Apps
+    Observability --> PlatformOps[Platform Operations]
+    Security --> Compliance[Security & Compliance]
