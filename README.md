@@ -166,14 +166,5 @@ helm upgrade --install platform-demo-app ./chart \
 The demo is intentionally minimal. The primary purpose of this repository is to show **enterprise platform architecture capability**.
 
 ---
-
-## Target Positioning
-
-This portfolio supports positioning for:
-
-- Platform Architect
-- Principal Platform Engineer
-- Cloud Native Architect
-- Enterprise Platform Architect
 - AI Infrastructure Architect
 - DevSecOps / Platform Security Architect
