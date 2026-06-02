@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: oidc-config
-  namespace: platform-demo
-data:
-  OIDC_ISSUER_URL: https://identity.example.com/realms/enterprise-demo
-  OIDC_CLIENT_ID: platform-demo-app

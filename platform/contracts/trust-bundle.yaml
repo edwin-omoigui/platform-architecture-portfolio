@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: platform-trust-bundle
-  namespace: platform-demo
-data:
-  README: |
-    Placeholder trust contract. Use enterprise CA distribution in production.

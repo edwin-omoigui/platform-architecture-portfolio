@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: platform-demo
-  labels:
-    platform.example.com/type: demo
-    platform.example.com/owner: platform-engineering
